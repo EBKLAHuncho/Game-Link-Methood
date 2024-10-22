@@ -1,0 +1,14 @@
+local player = game.Players.LocalPlayer
+local textButton = script.Parent
+local textLabel = textButton.Parent:WaitForChild("TextLabel")
+
+-- Change this to your game's link
+local gameLink = "https://www.roblox.com/games/" .. game.PlaceId
+
+textLabel.Text = "Game Link: " .. gameLink
+
+textButton.MouseButton1Click:Connect(function()
+    -- Create a copyable link
+    setclipboard(gameLink) -- This requires that your game has the "Enable Copy" setting
+    textLabel.Text = "Link copied to clipboard!"
+end)
